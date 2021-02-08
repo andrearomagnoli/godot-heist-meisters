@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GFX/Tilesheet/tilesheet_complete.png" type="Texture" id=3]
+[ext_resource path="res://Interface/VisionMode.tscn" type="PackedScene" id=4]
 
 [sub_resource type="OccluderPolygon2D" id=8]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -271,6 +272,8 @@ tile_data = PoolIntArray( -327689, 1, 0, -327688, 1, 2, -327687, 1, 2, -327686, 
 
 [node name="Furniture" type="TileMap" parent="Navigation2D"]
 tile_set = SubResource( 7 )
+collision_layer = 2
+collision_mask = 5
 format = 1
 
 [node name="Destinations" type="Node" parent="Navigation2D"]
@@ -285,8 +288,8 @@ drag_margin_v_enabled = true
 smoothing_enabled = true
 smoothing_speed = 10.0
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.403922, 0.403922, 0.403922, 1 )
+[node name="VisionMode" parent="." instance=ExtResource( 4 )]
+color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 
 [node name="Cameras" type="Node" parent="."]
 

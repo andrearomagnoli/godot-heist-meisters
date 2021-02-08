@@ -7,8 +7,9 @@ func _physics_process(delta):
 	update_movement()
 	motion = move_and_slide(motion)
 
-#func _input(event):
-#	torch_toggle()
+func _input(event):
+	vision_mode_toggle()
+#	toggle_torch()
 
 func update_movement():
 	
@@ -28,7 +29,10 @@ func update_movement():
 	else:
 		motion.x = lerp(motion.x, 0.0, FRICTION)
 
-#func torch_toggle():
-#	
-#	if Input.is_action_just_pressed("torch_toggle"):
-#		$Torch.enabled = !$Torch.enabled
+func vision_mode_toggle():
+	if Input.is_action_just_pressed("toggle_vision_mode"):
+		get_tree().call_group("Interface", "cycle_vision_mode")
+
+func toggle_torch():
+	if Input.is_action_just_pressed("toggle_torch"):
+		$Torch.enabled = !$Torch.enabled
