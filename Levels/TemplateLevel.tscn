@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=2]
+
+[node name="TemplateLevel" type="Node2D"]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( -327689, 1, 0, -327688, 1, 2, -327687, 1, 2, -327686, 1, 2, -327685, 1, 2, -327684, 1, 2, -327683, 1, 1, -262153, 1, 65538, -262152, 2, 0, -262151, 2, 0, -262150, 2, 0, -262149, 2, 0, -262148, 2, 0, -262147, 1, 65538, -196617, 1, 65538, -196616, 2, 0, -196615, 2, 4, -196614, 2, 4, -196613, 2, 0, -196612, 2, 0, -196611, 1, 65538, -131081, 1, 65538, -131080, 2, 0, -131079, 2, 0, -131078, 2, 0, -131077, 2, 0, -131076, 2, 0, -131075, 1, 65538, -65545, 1, 65536, -65544, 1, 2, -65543, 1, 2, -65542, 1, 2, -65541, 1, 2, -65540, 1, 2, -65539, 1, 65537 )
+
+[node name="Destinations" type="Node" parent="Navigation2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -342.879, -217.474 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.403922, 0.403922, 0.403922, 1 )
+
+[node name="Cameras" type="Node" parent="."]
+
+[node name="Guards" type="Node" parent="."]
