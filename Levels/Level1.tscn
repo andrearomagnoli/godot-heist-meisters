@@ -52,7 +52,7 @@ position = Vector2( 265.488, 194.216 )
 position = Vector2( -390.214, 260.142 )
 
 [node name="Camera" parent="Cameras" index="0" instance=ExtResource( 2 )]
-position = Vector2( 138.98, 286.869 )
+position = Vector2( 138.98, 341.865 )
 
 [node name="Camera2" parent="Cameras" index="1" instance=ExtResource( 2 )]
 position = Vector2( 244.106, -71.2719 )
