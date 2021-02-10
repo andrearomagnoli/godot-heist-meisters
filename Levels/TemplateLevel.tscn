@@ -296,3 +296,5 @@ color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 [node name="Guards" type="Node" parent="."]
 
 [node name="Doors" type="Node" parent="."]
+
+[node name="LockedDoors" type="Node" parent="."]

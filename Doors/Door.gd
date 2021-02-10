@@ -3,6 +3,8 @@ extends Area2D
 const PLAYER = 1
 const NPC = 4
 
+onready var animation = $AnimationPlayer
+
 var can_click = false
 
 
@@ -24,4 +26,4 @@ func _on_Door_input_event(viewport, event, shape_idx):
 
 
 func open():
-	$AnimationPlayer.play("Open")
+	animation.play("Open")

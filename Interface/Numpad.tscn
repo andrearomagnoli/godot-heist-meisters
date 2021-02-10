@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GFX/Interface/Fonts/kenvector_future_thin.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://GFX/Interface/PNG/glassPanel.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Interface/button_pressed_style.tres" type="StyleBox" id=8]
 [ext_resource path="res://Interface/button_normal_style.tres" type="StyleBox" id=9]
 [ext_resource path="res://Interface/button_hover_style.tres" type="StyleBox" id=10]
+[ext_resource path="res://Interface/Numpad.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -42,11 +43,11 @@ texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 100, 100 )
 
 [node name="Numpad" type="Popup"]
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 300, 400 )
 theme = SubResource( 2 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -81,8 +82,8 @@ margin_right = 280.0
 margin_bottom = 100.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/DisplayContainer"]
-margin_left = 14.0
-margin_right = 264.0
+margin_left = 15.0
+margin_right = 265.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 texture = ExtResource( 2 )
@@ -91,11 +92,12 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/DisplayContainer"]
+[node name="Display" type="Label" parent="VBoxContainer/DisplayContainer"]
 margin_left = 98.0
 margin_top = 39.0
 margin_right = 182.0
 margin_bottom = 60.0
+size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "DISPLAY"
 
@@ -203,3 +205,9 @@ custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "ok"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
