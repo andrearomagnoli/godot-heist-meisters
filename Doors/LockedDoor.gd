@@ -1,6 +1,7 @@
 extends "res://Doors/Door.gd"
 
 export var combination_length = 4
+export var lock_group = 'Default'
 
 onready var numpad = $CanvasLayer/Numpad
 onready var timer = $Timer
@@ -9,6 +10,7 @@ onready var label = $Label
 
 func _ready():
 	label.rect_rotation = -self.rotation_degrees
+	label.text = lock_group
 
 
 func _on_Door_body_exited(body):
@@ -34,5 +36,5 @@ func generate_combination():
 
 
 func _on_Computer_combination(combination, lock_group):
-	numpad.combination = combination
-	label.text = lock_group
+	if self.lock_group == lock_group:
+		numpad.combination = combination

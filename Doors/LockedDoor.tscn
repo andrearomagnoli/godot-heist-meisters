@@ -18,13 +18,15 @@ texture = ExtResource( 3 )
 margin_right = 300.0
 margin_bottom = 400.0
 
-[node name="Label" type="Label" parent="." index="5"]
+[node name="Label" type="Label" parent="." index="5" groups=[
+"Labels",
+]]
+visible = false
 margin_left = -8.41843
 margin_top = 22.4492
 margin_right = 66.5816
 margin_bottom = 43.4492
 theme = ExtResource( 5 )
-text = "GROUP"
 __meta__ = {
 "_edit_use_anchors_": false
 }

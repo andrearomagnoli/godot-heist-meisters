@@ -25,6 +25,8 @@ func cycle_vision_mode():
 func DARK_mode():
 	color = DARK
 	audio.stream = load("res://SFX/nightvision_off.wav")
+	get_tree().call_group('Lights', 'show')
+	get_tree().call_group('Labels', 'hide')
 	audio.play()
 	timer.start()
 	is_button_active = false
@@ -34,6 +36,8 @@ func DARK_mode():
 func NIGHTVISION_mode():
 	color = NIGHTVISION
 	audio.stream = load("res://SFX/nightvision.wav")
+	get_tree().call_group('Lights', 'hide')
+	get_tree().call_group('Labels', 'show')
 	audio.play()
 	timer.start()
 	is_button_active = false
