@@ -1,6 +1,6 @@
 extends Popup
 
-var combination = [0, 4, 5, 1]
+var combination = []
 var guess = []
 var status_light_red = preload("res://GFX/Interface/PNG/dotRed.png")
 var status_light_green = preload("res://GFX/Interface/PNG/dotGreen.png")
