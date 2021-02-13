@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GFX/Tilesheet/tilesheet_complete.png" type="Texture" id=3]
 [ext_resource path="res://Interface/VisionMode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interface/GUI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -298,3 +299,5 @@ color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 [node name="Doors" type="Node" parent="."]
 
 [node name="LockedDoors" type="Node" parent="."]
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]

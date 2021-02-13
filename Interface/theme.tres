@@ -6,7 +6,7 @@
 [ext_resource path="res://Interface/button_pressed_style.tres" type="StyleBox" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 18
+size = 23
 font_data = ExtResource( 1 )
 
 [resource]
