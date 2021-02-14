@@ -5,11 +5,14 @@ var disguised = false
 #var torch_on = true
 
 onready var sprite = $Sprite
+onready var light = $Light2D
 onready var collider = $CollisionShape2D
 onready var occluder = $LightOccluder2D
 
 onready var player_texture = load("res://GFX/PNG/Hitman 1/hitman1_stand.png")
+onready var player_light = load("res://GFX/PNG/Hitman 1/hitman1_stand.png")
 onready var box_texture = load("res://GFX/PNG/Tiles/tile_130.png")
+onready var box_light = load("res://GFX/PNG/Tiles/tile_130.png")
 onready var human_occluder = load("res://Characters/HumanOccluder.tres")
 onready var human_collider = load("res://Characters/HumanCollider.tres")
 onready var box_occluder = load("res://Characters/BoxOccluder.tres")
@@ -61,6 +64,7 @@ func toggle_disguise():
 
 func reveal():
 	sprite.texture = player_texture
+	light.texture = player_light
 	collider.shape = human_collider
 	occluder.occluder = human_occluder
 	disguised = false
@@ -69,6 +73,7 @@ func reveal():
 
 func disguise():
 	sprite.texture = box_texture
+	light.texture = box_light
 	collider.shape = box_collider
 	occluder.occluder = box_occluder
 	disguised = true
