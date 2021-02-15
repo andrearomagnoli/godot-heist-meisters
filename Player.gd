@@ -2,12 +2,19 @@ extends "res://Characters/TemplateCharacter.gd"
 
 var motion = Vector2()
 var disguised = false
+var velocity_multiplier = 1
 #var torch_on = true
+
+export var disguise_slowdown = 0.25
+export var disguise_duration = 5
+export var number_of_disguises = 3
 
 onready var sprite = $Sprite
 onready var light = $Light2D
 onready var collider = $CollisionShape2D
 onready var occluder = $LightOccluder2D
+onready var timer = $Timer
+onready var disguise_label = $DisguiseLabel
 
 onready var player_texture = load("res://GFX/PNG/Hitman 1/hitman1_stand.png")
 onready var player_light = load("res://GFX/PNG/Hitman 1/hitman1_stand.png")
@@ -19,9 +26,18 @@ onready var box_occluder = load("res://Characters/BoxOccluder.tres")
 onready var box_collider = load("res://Characters/BoxCollider.tres")
 
 
+func _ready():
+	timer.wait_time = disguise_duration
+
+
 func _physics_process(delta):
+	
 	update_movement()
-	motion = move_and_slide(motion)
+	move_and_slide(motion * velocity_multiplier)
+		
+	if disguised:
+		disguise_label.text = str(timer.time_left).pad_decimals(2)
+		disguise_label.set_rotation(-rotation)
 
 
 func _input(event):
@@ -58,7 +74,7 @@ func toggle_disguise():
 	if Input.is_action_just_pressed("toggle_disguise"):
 		if disguised:
 			reveal()
-		else:
+		elif number_of_disguises > 0:
 			disguise()
 
 
@@ -67,6 +83,10 @@ func reveal():
 	light.texture = player_light
 	collider.shape = human_collider
 	occluder.occluder = human_occluder
+	disguise_label.hide()
+	
+	velocity_multiplier = 1
+	
 	disguised = false
 	collision_layer = 1
 
@@ -76,8 +96,14 @@ func disguise():
 	light.texture = box_light
 	collider.shape = box_collider
 	occluder.occluder = box_occluder
+	disguise_label.show()
+	
+	velocity_multiplier = disguise_slowdown
+	
 	disguised = true
+	number_of_disguises -= 1
 	collision_layer = 16
+	timer.start()
 
 
 func toggle_torch():
