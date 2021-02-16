@@ -118,4 +118,10 @@ rotation = 1.5708
 [node name="Computer" parent="Computers" index="0" instance=ExtResource( 6 )]
 position = Vector2( -459.381, -160.5 )
 rotation = 4.71239
+
+[node name="Exit" parent="." index="10"]
+margin_left = 70.7151
+margin_top = -590.683
+margin_right = 270.715
+margin_bottom = -490.683
 [connection signal="combination" from="Computers/Computer" to="LockedDoors/LockedDoor" method="_on_Computer_combination"]
