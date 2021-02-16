@@ -109,6 +109,12 @@ func disguise():
 	timer.start()
 
 
+func collect_briefcase():
+	var loot = Node.new()
+	loot.set_name('Briefcase')
+	add_child(loot)
+
+
 func toggle_torch():
 	if Input.is_action_just_pressed("toggle_torch"):
 		$Torch.enabled = !$Torch.enabled
