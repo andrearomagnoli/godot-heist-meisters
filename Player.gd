@@ -28,6 +28,7 @@ onready var box_collider = load("res://Characters/BoxCollider.tres")
 
 func _ready():
 	timer.wait_time = disguise_duration
+	get_tree().call_group('DisguiseDisplay', 'update_disguises', number_of_disguises)
 
 
 func _physics_process(delta):
@@ -102,6 +103,8 @@ func disguise():
 	
 	disguised = true
 	number_of_disguises -= 1
+	get_tree().call_group('DisguiseDisplay', 'update_disguises', number_of_disguises)
+	
 	collision_layer = 16
 	timer.start()
 
