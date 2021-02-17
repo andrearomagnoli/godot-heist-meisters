@@ -9,12 +9,14 @@ func _ready():
 func update_pointer_position(objective_number):
 	var pointer = $ObjectivePointer
 	var place = $ObjectivePositions.get_child(objective_number)
+	var message = $ObjectiveMessages.get_child(objective_number)
 	
 	$Tween.interpolate_property(pointer, 'position', pointer.position,
 			place.position, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	$Tween.start()
 	
 	$MessageSound.play()
+	$TutorialGUI/Control/NinePatchRect/Label.text = message.message
 
 
 func _on_MoveObjective_body_entered(body):

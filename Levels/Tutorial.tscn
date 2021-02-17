@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/TemplateLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Lightmaps/torchmap.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://GFX/Interface/PNG/crossair_blueOutline.png" type="Texture" id=5]
 [ext_resource path="res://Levels/Tutorial.gd" type="Script" id=6]
 [ext_resource path="res://SFX/message.wav" type="AudioStream" id=7]
+[ext_resource path="res://Interface/TutorialGUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Interface/MessageTemplate.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 50 )
@@ -26,7 +28,9 @@ position = Vector2( 240.271, 290.995 )
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
 position = Vector2( 288.048, -289.469 )
 
-[node name="Light2D" type="Light2D" parent="." index="9"]
+[node name="TutorialGUI" parent="." index="8" instance=ExtResource( 8 )]
+
+[node name="Light2D" type="Light2D" parent="." index="10"]
 position = Vector2( -654.023, -378.864 )
 rotation = 0.324276
 scale = Vector2( 1.5, 1.5 )
@@ -35,7 +39,7 @@ offset = Vector2( 300, 0 )
 energy = 0.5
 shadow_enabled = true
 
-[node name="Light2D2" type="Light2D" parent="." index="10"]
+[node name="Light2D2" type="Light2D" parent="." index="11"]
 position = Vector2( -666.708, -73.0203 )
 rotation = -0.34708
 scale = Vector2( 1.5, 1.5 )
@@ -44,7 +48,7 @@ offset = Vector2( 300, 0 )
 energy = 0.5
 shadow_enabled = true
 
-[node name="Light2D3" type="Light2D" parent="." index="11"]
+[node name="Light2D3" type="Light2D" parent="." index="12"]
 position = Vector2( 353.639, 617.699 )
 rotation = -1.9073
 scale = Vector2( 1.5, 1.5 )
@@ -53,7 +57,7 @@ offset = Vector2( 300, 0 )
 energy = 0.5
 shadow_enabled = true
 
-[node name="Light2D4" type="Light2D" parent="." index="12"]
+[node name="Light2D4" type="Light2D" parent="." index="13"]
 position = Vector2( 317.639, -194.301 )
 rotation = -1.85842
 scale = Vector2( 0.25, 0.25 )
@@ -61,14 +65,15 @@ texture = ExtResource( 2 )
 offset = Vector2( 300, 0 )
 energy = 0.5
 shadow_enabled = true
+shadow_item_cull_mask = 0
 
-[node name="Exit" parent="." index="13"]
+[node name="Exit" parent="." index="14"]
 margin_left = 573.85
 margin_top = 172.857
 margin_right = 773.85
 margin_bottom = 272.857
 
-[node name="ObjectiveAreas" type="Node" parent="." index="14"]
+[node name="ObjectiveAreas" type="Node" parent="." index="15"]
 
 [node name="MoveObjective" type="Area2D" parent="ObjectiveAreas" index="0"]
 position = Vector2( -107.919, -211.774 )
@@ -110,7 +115,24 @@ __meta__ = {
 position = Vector2( 147.5, -12.681 )
 shape = SubResource( 1 )
 
-[node name="ObjectivePositions" type="Node" parent="." index="15"]
+[node name="ObjectiveMessages" type="Node" parent="." index="16"]
+
+[node name="WelcomeMessage" parent="ObjectiveMessages" index="0" instance=ExtResource( 9 )]
+message = "Welcome, Heist Meister, to your first day of training. Please proceed to the objective marker using [W] [A] [S] [D] keys to move."
+
+[node name="DoorMessage" parent="ObjectiveMessages" index="1" instance=ExtResource( 9 )]
+message = "Excellent. Now we'll practice interacting with objects. Stand close to the door and left-click on it with the mouse."
+
+[node name="NightVisionMessage" parent="ObjectiveMessages" index="2" instance=ExtResource( 9 )]
+message = "You'll be working in the dark a lot, so we've provided you with a night vision module. Activte or deactivate it with the [F] key."
+
+[node name="LootMessage" parent="ObjectiveMessages" index="3" instance=ExtResource( 9 )]
+message = "Before you can leave, you'll have to grab that suitcase."
+
+[node name="ExitMessage" parent="ObjectiveMessages" index="4" instance=ExtResource( 9 )]
+message = "The exit is unlocked! Head to it."
+
+[node name="ObjectivePositions" type="Node" parent="." index="17"]
 
 [node name="MoveObjective" type="Position2D" parent="ObjectivePositions" index="0"]
 position = Vector2( 87, -224 )
@@ -119,7 +141,7 @@ position = Vector2( 87, -224 )
 position = Vector2( 288, -280 )
 
 [node name="NightVisionObjective" type="Position2D" parent="ObjectivePositions" index="2"]
-position = Vector2( 869, -9 )
+position = Vector2( 864, -9 )
 
 [node name="LootObjective" type="Position2D" parent="ObjectivePositions" index="3"]
 position = Vector2( 239, 291 )
@@ -127,16 +149,16 @@ position = Vector2( 239, 291 )
 [node name="ExitObjective" type="Position2D" parent="ObjectivePositions" index="4"]
 position = Vector2( 677, 224 )
 
-[node name="ObjectivePointer" type="Sprite" parent="." index="16"]
+[node name="ObjectivePointer" type="Sprite" parent="." index="18"]
 position = Vector2( -295, -217 )
 texture = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="ObjectivePointer" index="0"]
 texture = ExtResource( 5 )
 
-[node name="Tween" type="Tween" parent="." index="17"]
+[node name="Tween" type="Tween" parent="." index="19"]
 
-[node name="MessageSound" type="AudioStreamPlayer" parent="." index="18"]
+[node name="MessageSound" type="AudioStreamPlayer" parent="." index="20"]
 stream = ExtResource( 7 )
 volume_db = -10.0
 [connection signal="body_entered" from="ObjectiveAreas/MoveObjective" to="." method="_on_MoveObjective_body_entered"]

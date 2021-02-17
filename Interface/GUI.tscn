@@ -117,12 +117,12 @@ script = ExtResource( 8 )
 [node name="LootContainer" type="NinePatchRect" parent="Control" groups=[
 "Loot",
 ]]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = -105.0
-margin_right = 320.0
-margin_bottom = -20.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -322.349
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 105.0
 texture = ExtResource( 9 )
 patch_margin_left = 12
 patch_margin_top = 12
@@ -145,14 +145,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/LootContainer/VBoxContainer"]
-margin_right = 276.0
+margin_right = 278.0
 margin_bottom = 27.0
 theme = ExtResource( 3 )
 text = "loot"
 
 [node name="ItemList" type="ItemList" parent="Control/LootContainer/VBoxContainer"]
 margin_top = 31.0
-margin_right = 276.0
+margin_right = 278.0
 margin_bottom = 31.0
 auto_height = true
 max_columns = 7
