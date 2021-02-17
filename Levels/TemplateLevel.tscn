@@ -293,6 +293,8 @@ smoothing_speed = 10.0
 [node name="VisionMode" parent="." instance=ExtResource( 4 )]
 color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 
+[node name="Loot" type="Node" parent="."]
+
 [node name="Cameras" type="Node" parent="."]
 
 [node name="Guards" type="Node" parent="."]
