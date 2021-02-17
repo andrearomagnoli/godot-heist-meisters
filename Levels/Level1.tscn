@@ -61,8 +61,6 @@ position = Vector2( -380.356, -242.223 )
 [node name="Camera2D" parent="Player" index="6"]
 visible = false
 
-[node name="Loot" type="Node" parent="." index="3"]
-
 [node name="Briefcase" parent="Loot" index="0" instance=ExtResource( 7 )]
 position = Vector2( 548.38, -223.248 )
 
@@ -109,17 +107,17 @@ position = Vector2( 352.065, -353.953 )
 [node name="Door4" parent="Doors" index="6" instance=ExtResource( 4 )]
 position = Vector2( 799.462, -160.459 )
 
-[node name="LockedDoor" parent="LockedDoors" index="0" instance=ExtResource( 5 )]
-position = Vector2( -160.05, -224.266 )
-rotation = 1.5708
-
 [node name="Computers" type="Node" parent="." index="8"]
 
 [node name="Computer" parent="Computers" index="0" instance=ExtResource( 6 )]
 position = Vector2( -459.381, -160.5 )
 rotation = 4.71239
 
-[node name="Exit" parent="." index="10"]
+[node name="LockedDoor" parent="LockedDoors" index="0" instance=ExtResource( 5 )]
+position = Vector2( -160.05, -224.266 )
+rotation = 1.5708
+
+[node name="Exit" parent="." index="11"]
 margin_left = 70.7151
 margin_top = -590.683
 margin_right = 270.715
