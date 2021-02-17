@@ -16,6 +16,7 @@ func update_pointer_position(objective_number):
 	$Tween.start()
 	
 	$MessageSound.play()
+	$TutorialGUI/AnimationPlayer.play('MessageChange')
 	$TutorialGUI/Control/NinePatchRect/Label.text = message.message
 
 
@@ -28,6 +29,7 @@ func _on_DoorObjective_body_entered(body):
 
 
 func _on_NightVisionObjective_body_entered(body):
+	get_tree().call_group('Interface', 'DARK_mode')
 	update_pointer_position(3)
 
 
