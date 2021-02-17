@@ -7,3 +7,7 @@ func _on_StartButton_pressed():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+
+func _on_TutorialButton_pressed():
+	get_tree().change_scene("res://Levels/Tutorial.tscn")
